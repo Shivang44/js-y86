@@ -40,3 +40,13 @@ SYNTAX['brke'] = [];
 SYNTAX['brkne'] = [];
 SYNTAX['brkge'] = [];
 SYNTAX['brkg'] = [];
+
+//cmsc216
+SYNTAX['multl'] = ['rA', 'rB']
+SYNTAX['divl'] = ['rA', 'rB']
+SYNTAX['modl'] = ['rA', 'rB']
+
+SYNTAX['wrch'] = ['rA']
+SYNTAX['rdch'] = ['rA']
+SYNTAX['wrint'] = ['rA']
+SYNTAX['rdint'] = ['rA']
