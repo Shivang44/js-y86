@@ -13,4 +13,4 @@ js-y86 is an assembler and simulator written in Javascript. It supports:
 -	Syntax highlighting
 -	See your (hopefully useful) compile errors as you type
 
-[See it in action](https://jdg.github.io/js-y86/) or [read the documentation on the Wiki](https://github.com/jdg/js-y86/wiki).
+[See it in action](https://jgluck.github.io/js-y86/) or [read the documentation on the Wiki](https://github.com/jdg/js-y86/wiki).
