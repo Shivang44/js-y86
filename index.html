@@ -28,9 +28,9 @@ Stack:
                 <button class="continue"><i class="fa fa-angle-double-right"></i> <span>Start</span></button>
             </div>
             <div class="links">
-                <a href="https://github.com/jgluck1/js-y86/tree/master/samples">Examples</a>
-                <a href="https://github.com/jgluck1/js-y86/wiki">Wiki</a>
-                <a href="https://github.com/jgluck1/js-y86">GitHub <i class="fa fa-github"></i></a>
+                <a href="https://github.com/jgluck/js-y86/tree/master/samples">Examples</a>
+                <a href="https://github.com/jgluck/js-y86/wiki">Wiki</a>
+                <a href="https://github.com/jgluck/js-y86">GitHub <i class="fa fa-github"></i></a>
             </div>
         </div>
         <div class="app-body">
@@ -47,6 +47,7 @@ Stack:
 
     <script type="text/template" id="tmpl_inspector">
         <div class="object"></div>
+        <div class="output-wrapper"></div>
         <div class="registers-wrapper"></div>
     </script>
 
@@ -72,6 +73,14 @@ Stack:
             <div class="lines"></div>
         </div>
     </script>
+
+
+        <script type="text/template" id="tmpl_output">
+            <h2>Output</h2>
+            <div class="lines-wrapper">
+                <div class="lines"></div>
+            </div>
+        </script>
 
     <script type="text/template" id="tmpl_object_code_error">
         <div class="line-no">Line <%= lineno %></div>
@@ -177,6 +186,8 @@ Stack:
     <script src="js/views/memory.js"></script>
     <script src="js/views/registers.js"></script>
     <script src="js/views/objcode.js"></script>
+    <script src="js/views/output.js"></script>
+
 
     <script>
         $(function () {
@@ -190,16 +201,16 @@ Stack:
         }
     </script>
 
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-41144558-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
+    // <script>
+    //   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    //   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    //   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    //   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    //
+    //   ga('create', 'UA-41144558-1', 'auto');
+    //   ga('send', 'pageview');
+    //
+     </script>
 
   </body>
 </html>

@@ -184,6 +184,23 @@ html, body {
 	box-shadow: inset 0px 0px 8px rgba(0,0,0,0.02);
 }
 
+.output {
+	position: relative;
+	margin: 8px;
+	border: 2px solid #ddd;
+	padding: 4px 0;
+	-webkit-flex: 1 1;
+	flex: 1 1;
+
+	background: #f0f0f0;
+
+	overflow-x: auto;
+	overflow-y: auto;
+
+	box-shadow: inset 0px 0px 8px rgba(0,0,0,0.02);
+
+}
+
 .object-code-line {
 	display: -webkit-flex;
 	display: flex;
