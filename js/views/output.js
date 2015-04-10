@@ -5,8 +5,9 @@ var OutputView = Backbone.View.extend({
     this.template = _.template($('#tmpl_output').html());
     this.output = "hi";
     this.render(this);
+
     window.app.vent.on("output:updated", this.render, this)
-    // this.$el.html( this.template );
+      // this.$el.html( this.template );
   },
 
   render: function(context) {
@@ -16,10 +17,11 @@ var OutputView = Backbone.View.extend({
       this.rendered = true;
       this.$lineContainer = this.$('.lines');
     }
-    this.output = {output: window.OUTPUT.replace("\n","<br>")};
+    this.output = {
+      output: window.OUTPUT.replace("\n", "<br>")
+    };
     this.$el.empty().append(this.template(this.output))
   },
-
 
 
 

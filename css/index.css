@@ -203,6 +203,24 @@ html, body {
 
 }
 
+.output .line-wrapper{
+	min-height:20%;
+	max-height:20%;
+}
+
+.output input[disabled]{
+	background:rgba(156, 156, 156, 0.79);
+}
+
+.output input {
+	position: relative;
+	width: 95%;
+	display: block;
+	margin: 0 auto;
+	/*padding-left: 200cm;*/
+	background:rgba(139, 177, 136, 0.79);
+}
+
 .object-code-line {
 	display: -webkit-flex;
 	display: flex;

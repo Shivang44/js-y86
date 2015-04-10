@@ -150,10 +150,10 @@ function evalArgs(list, args, symbols) {
         result['rB'] = getRegCode("%NoReg");
       } else {
 
-      result['D'] = toBigEndian(padHex(parseNumberLiteral(args[i].replace(
-        /\(.*/, '')) >>> 0, 8));
-      result['rB'] = getRegCode(args[i].replace(/^.*\((.*)\)/, '$1'));
-    }
+        result['D'] = toBigEndian(padHex(parseNumberLiteral(args[i].replace(
+          /\(.*/, '')) >>> 0, 8));
+        result['rB'] = getRegCode(args[i].replace(/^.*\((.*)\)/, '$1'));
+      }
     }
   }
   return result;
@@ -374,7 +374,7 @@ function PAUSE() {
 // Run until hitting a breakpoint, halting, or erroring
 function RUN(cb) {
   // Resume from breakpoint, if applicable
-  if (STAT === 'DBG')
+  if (STAT === 'DBG' || STAT === 'I/O')
     STAT = 'AOK';
 
   // Use fastest available interval the browser can provide
@@ -436,4 +436,10 @@ function toByteArray(str) {
     }
   }
   return bytearr;
+}
+
+function keyhandler(e) {
+  if (e.keyCode == 13) {
+    window.input_flag = true
+  }
 }

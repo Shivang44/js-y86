@@ -56,20 +56,20 @@ INSTR[3] = function() {
 };
 INSTR[4] = function() {
   var valA = getRegister(this.rA)
-  if(this.rB == 8){ //label move 
+  if (this.rB == 8) { //label move
     ST(this.D, valA, 4);
-  }else{
+  } else {
     var valB = getRegister(this.rB),
-    valE = valB + this.D;
+      valE = valB + this.D;
     ST(valE, valA, 4);
   }
 };
 INSTR[5] = function() {
-  if(this.rB == 8){ //label move 
+  if (this.rB == 8) { //label move
     REG[this.rA] = LD(this.D);
-  }else{
+  } else {
     var valB = getRegister(this.rB),
-    valE = valB + this.D;
+      valE = valB + this.D;
     REG[this.rA] = LD(valE);
   }
 };
@@ -238,22 +238,70 @@ INSTR[15] = function() {
   switch (this.fn) {
     case 0:
       // rdch
+      window.input_flag = false
+      $("#input_box").prop("disabled", false);
+      $("#input_box").attr('maxlength', 1);
+      $("#input_box").focus()
+      STAT = 'I/O'
+      var timer = setInterval(function(rA) {
+        box = $("#input_box")
+        if (window.input_flag) {
+          if (box.val() == "") {
+            window.REG[rA] = 10;
+          } else {
+            window.REG[rA] = box.val().charCodeAt(0);
+          }
+          window.input_flag = false
+          box.val("")
+          box.prop("disabled", true)
+          window.STAT = 'AOK'
+          Backbone.Events.trigger('app:redraw');
+          clearInterval(timer);
+        }
+      }, 100, this.rA);
+
       break;
     case 1:
       // wrch
       out_s = String.fromCharCode(getRegister(this.rA))
-      // alert(out_s);
+        // alert(out_s);
       print(out_s);
       window.OUTPUT += out_s
       window.app.vent.trigger("output:updated")
       break;
     case 2:
       // rdint
+      window.input_flag = false
+      $("#input_box").prop("disabled", false);
+      $("#input_box").attr('maxlength', 80);
+      $("#input_box").focus()
+      STAT = 'I/O'
+      var timer = setInterval(function(rA) {
+        box = $("#input_box")
+        if (window.input_flag) {
+          result = parseInt(box.val());
+          if (result == NaN) {
+            box.val("");
+          } else if (Number(result) === result && result % 1 === 0) { //checknumbernss
+            window.REG[rA] = result;
+            window.input_flag = false
+            box.val("")
+            box.prop("disabled", true)
+            window.STAT = 'AOK'
+            Backbone.Events.trigger('app:redraw');
+            clearInterval(timer);
+          } else {
+            box.val("")
+          }
+        }
+      }, 100, this.rA);
+
+
       break;
     case 3:
       //wrint
       out_s = getRegister(this.rA).toString()
-      // alert(out_s);
+        // alert(out_s);
       print(out_s);
       window.OUTPUT += out_s
       window.app.vent.trigger("output:updated")
