@@ -1,12 +1,14 @@
 var AppView = Backbone.View.extend({
 	initialize: function () {
+		window.app = this;
+		this.vent = _.extend({}, Backbone.Events);
 		this.template = _.template($('#tmpl_app').html());
 		this.editor = new EditorView();
 		this.inspector = new InspectorView();
 		this.memview = new MemoryView();
 
 		this.listenTo(Backbone.Events, 'app:redraw', this.redrawButtons);
-
+		
 		this.render();
 	},
 

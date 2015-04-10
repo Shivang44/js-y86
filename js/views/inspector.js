@@ -41,5 +41,6 @@ var InspectorView = Backbone.View.extend({
     var $output = this.output.$('.output-wrapper');
     $output.height((($(window).height() - $lines.position().top - this.$(
       '.registers-wrapper').height()) / 3) * 1);
-  }
+  },
+
 });

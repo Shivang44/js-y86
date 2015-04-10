@@ -78,7 +78,8 @@ Stack:
         <script type="text/template" id="tmpl_output">
             <h2>Output</h2>
             <div class="lines-wrapper">
-                <div class="lines"></div>
+                <div class="lines"><%= output %></div>
+                <input type="text" id="search_input" />
             </div>
         </script>
 
@@ -193,6 +194,7 @@ Stack:
         $(function () {
             var app = new AppView();
             $('#app').append(app.$el);
+            window.app = app;
         });
 
         // Don't lose unsaved work!

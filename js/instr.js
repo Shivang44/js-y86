@@ -242,9 +242,10 @@ INSTR[15] = function() {
     case 1:
       // wrch
       out_s = String.fromCharCode(getRegister(this.rA))
-      alert(out_s);
+      // alert(out_s);
       print(out_s);
-      OUTPUT += out_s
+      window.OUTPUT += out_s
+      window.app.vent.trigger("output:updated")
       break;
     case 2:
       // rdint
@@ -252,9 +253,10 @@ INSTR[15] = function() {
     case 3:
       //wrint
       out_s = getRegister(this.rA).toString()
-      alert(out_s);
+      // alert(out_s);
       print(out_s);
-      OUTPUT += out_s
+      window.OUTPUT += out_s
+      window.app.vent.trigger("output:updated")
       break;
   }
 };

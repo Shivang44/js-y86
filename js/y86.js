@@ -11,7 +11,7 @@ var PC = 0,
   OF = 0,
   ERR = '';
 //output
-OUTPUT = '';
+window.OUTPUT = '';
 
 // Bounds check the register array
 function getRegister(idx) {
@@ -41,7 +41,8 @@ function RESET() {
   ZF = 0;
   OF = 0;
   ERR = '';
-  OUTPUT = '';
+  window.OUTPUT = '';
+  window.app.vent.trigger("output:updated")
 }
 
 // Load
