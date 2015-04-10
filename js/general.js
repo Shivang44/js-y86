@@ -4,7 +4,7 @@ var INSTRUCTION_LEN = [1, 1, 2, 6,
     5, 1, 2, 2,
     1, 1, 1, 2
   ],
-  num2reg = ['%eax', '%ecx', '%edx', '%ebx', '%esp', '%ebp', '%esi', '%edi'],
+  num2reg = ['%eax', '%ecx', '%edx', '%ebx', '%esp', '%ebp', '%esi', '%edi','%NoReg'],
   inst2num = {
     'halt': 0,
     'nop': 1,

@@ -27,7 +27,11 @@ var ASSEM = [];
   };
 
   ASSEM[5] = function() {
-    return '50' + this.rA + this.rB + padq(this.D);
+    if(this.D == -1){
+      return '50' + this.rA + this.rB
+    }else{
+      return '50' + this.rA + this.rB + padq(this.D);
+    }
   };
 
   ASSEM[6] = function() {

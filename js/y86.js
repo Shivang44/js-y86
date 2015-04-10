@@ -143,14 +143,16 @@ function evalArgs(list, args, symbols) {
       }
     } else if (item === 'D(rB)') {
 
-      // if (symbols.hasOwnProperty(args[i])) {
-      //   result['V'] = toBigEndian(padHex(symbols[args[i]], 8));
-      //   result['D'] = result['V'];
-      // } else {
+      if (symbols.hasOwnProperty(args[i])) {
+        result['D'] = toBigEndian(padHex(symbols[args[i]], 8));
+        // result['D'] = toBigEndian(padHex(parseNumberLiteral(0)));
+        result['rB'] = getRegCode("%NoReg");
+      } else {
 
       result['D'] = toBigEndian(padHex(parseNumberLiteral(args[i].replace(
         /\(.*/, '')) >>> 0, 8));
       result['rB'] = getRegCode(args[i].replace(/^.*\((.*)\)/, '$1'));
+    }
     }
   }
   return result;

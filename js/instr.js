@@ -55,16 +55,25 @@ INSTR[3] = function() {
   REG[this.rB] = this.V;
 };
 INSTR[4] = function() {
-  var valA = getRegister(this.rA),
-    valB = getRegister(this.rB),
+  var valA = getRegister(this.rA)
+  if(this.rB == 8){ //label move 
+    ST(this.D, valA, 4);
+  }else{
+    var valB = getRegister(this.rB),
     valE = valB + this.D;
-  ST(valE, valA, 4);
+    ST(valE, valA, 4);
+  }
 };
 INSTR[5] = function() {
-  var valB = getRegister(this.rB),
+  if(this.rB == 8){ //label move 
+    REG[this.rA] = LD(this.D);
+  }else{
+    var valB = getRegister(this.rB),
     valE = valB + this.D;
-  REG[this.rA] = LD(valE);
+    REG[this.rA] = LD(valE);
+  }
 };
+
 INSTR[6] = function() {
   var valA = getRegister(this.rA),
     valB = getRegister(this.rB),
