@@ -1,8 +1,9 @@
-js-y86
+js-y86 (for cmsc216)
 ======
+---
+**Disclaimer** I forked this project in April of 2015. It is somewhat modified from the version found [here](https://github.com/xsznix/js-y86)
 
-**MODIFIED BY JONATHAN GLUCK FOR CMSC216**
-
+##Introduction
 js-y86 is an assembler and simulator written in Javascript. It supports:
 
 -	All of the original y86 instructions plus cmovX
@@ -12,5 +13,15 @@ js-y86 is an assembler and simulator written in Javascript. It supports:
 -	Manually pause if you get stuck in an infinite loop
 -	Syntax highlighting
 -	See your (hopefully useful) compile errors as you type
-
+-	Input-Output:
+    - rdch
+    - wrch
+    - rdint
+    - wrint	
+-	Additional Instructions:
+    - Multl
+    - Divl
+    - Modl
+    	
+##How to use it
 [See it in action](https://jgluck.github.io/js-y86/) or [read the documentation on the Wiki](https://github.com/jdg/js-y86/wiki).
