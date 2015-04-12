@@ -241,6 +241,19 @@ INSTR[15] = function() {
 			window.input_flag = false
 			$("#input_box").prop("disabled", false);
 			$("#input_box").attr('maxlength', 1);
+			$('#input_box').qtip({
+				content: {
+					text: 'Enter a character'
+				},
+				show: true,
+				style: {
+					classes: 'qtip-bootstrap',
+				},
+				position: {
+					my: 'top right',
+					at: 'bottom left'
+				}
+			});
 			$("#input_box").focus()
 			STAT = 'I/O'
 			var timer = setInterval(function(rA) {
@@ -253,6 +266,7 @@ INSTR[15] = function() {
 					}
 					window.input_flag = false
 					box.val("")
+					$(".qtip").remove();
 					box.prop("disabled", true)
 					window.STAT = 'AOK'
 					Backbone.Events.trigger('app:redraw');
@@ -274,6 +288,19 @@ INSTR[15] = function() {
 			window.input_flag = false
 			$("#input_box").prop("disabled", false);
 			$("#input_box").attr('maxlength', 80);
+			$('#input_box').qtip({
+				content: {
+					text: 'Enter an integer'
+				},
+				show: true,
+				style: {
+					classes: 'qtip-bootstrap',
+				},
+				position: {
+					my: 'top right',
+					at: 'bottom left'
+				}
+			});
 			$("#input_box").focus()
 			STAT = 'I/O'
 			var timer = setInterval(function(rA) {
@@ -287,6 +314,7 @@ INSTR[15] = function() {
 						window.REG[rA] = result;
 						box.val("")
 						box.prop("disabled", true)
+						$(".qtip").remove();
 						window.STAT = 'AOK'
 						Backbone.Events.trigger('app:redraw');
 						clearInterval(timer);

@@ -46,6 +46,7 @@ function RESET() {
 	box = $("#input_box");
 	box.val("");
 	box.prop("disabled", true);
+	$(".qtip").remove();
 }
 
 // Load
