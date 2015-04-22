@@ -56,16 +56,21 @@
  	},
 
  	resizeObjectView: function() {
- 		var $regs = this.$('.registers-wrapper');
- 		$regs.css('position', 'relative');
- 		$regs.css('bottom', 0);
+ 		// 	var $regs = this.$('.registers-wrapper');
+ 		// 	$regs.css('position', 'relative');
+ 		// 	$regs.css('bottom', 0);
+
+ 		var $ins = $('.inspector');
+ 		var $reg = $('.registers-wrapper')
+ 		var $head = $('.object>h2')
 
  		var $lines = this.$objcode.$('.lines-wrapper');
- 		$lines.height((($(window).height() - $lines.position().top - this.$(
- 			'.registers-wrapper').height()) / 3) * 2);
+ 		$lines.height((($ins.outerHeight() - $lines.position()
+ 			.top - $reg.outerHeight()) / 3) * 2);
  		var $output = this.$output.$('.lines-wrapper');
- 		$output.height((($(window).height() - $output.position().top - this.$(
- 			'.registers-wrapper').height()) / 3) * .7);
+ 		$output.height((($ins.outerHeight() - $lines.position()
+ 			.top -
+ 			$reg.outerHeight()) / 3) * 1);
  	},
 
  });

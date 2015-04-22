@@ -166,6 +166,7 @@ html, body {
 	flex-direction: column;
 
 	width: 50%;
+	bottom: 0px;
 }
 
 .editor {
@@ -233,7 +234,7 @@ html, body {
 }
 
 .output .lines{
-	height: 50%;
+	height: 70%;
 	position: relative;
 	margin: 8px;
 	border: 2px solid #ddd;
