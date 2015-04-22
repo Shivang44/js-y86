@@ -58,19 +58,30 @@
  	resizeObjectView: function() {
  		// 	var $regs = this.$('.registers-wrapper');
  		// 	$regs.css('position', 'relative');
- 		// 	$regs.css('bottom', 0);
+ 		// 	$regs.css('bottom', '10px');
+ 		// 	$regs.css('top', )
 
  		var $ins = $('.inspector');
  		var $reg = $('.registers-wrapper')
- 		var $head = $('.object>h2')
+ 		var $head = $('.object')
+
+
 
  		var $lines = this.$objcode.$('.lines-wrapper');
- 		$lines.height((($ins.outerHeight() - $lines.position()
- 			.top - $reg.outerHeight()) / 3) * 2);
+ 		$lines.height((($ins.outerHeight() - $lines.offset().top -
+ 			$reg.outerHeight()) / 3) * 2);
+
  		var $output = this.$output.$('.lines-wrapper');
- 		$output.height((($ins.outerHeight() - $lines.position()
- 			.top -
+ 		$output.height((($ins.outerHeight() - $lines.offset().top -
  			$reg.outerHeight()) / 3) * 1);
+
+ 		// 	console.log("Lines Height: " + $lines.height() + " Lines Top: " +
+ 		// 		$lines.offset().top + "\n===========\n")
+ 		// 	console.log("Output Height: " + $output.height() + " Output Top: " +
+ 		// 		$output.offset().top + "\n===========\n")
+ 		// 	console.log("Tiff Data: " + $ins.outerHeight() + " " + $lines.offset().top +
+ 		// 		" " + $reg.outerHeight())
+
  	},
 
  });
