@@ -19,29 +19,45 @@
 // SOFTWARE.
 
 var OutputView = Backbone.View.extend({
-  className: 'output',
+	className: 'output',
 
-  initialize: function() {
-    this.template = _.template($('#tmpl_output').html());
-    this.output = "hi";
-    this.render(this);
+	initialize: function() {
+		this.template = _.template($('#tmpl_output').html());
+		this.output = "hi";
+		this.render(this);
 
-    window.app.vent.on("output:updated", this.render, this)
-      // this.$el.html( this.template );
-  },
+		window.app.vent.on("output:updated", this.update_text, this)
+			// this.$el.html( this.template );
+	},
 
-  render: function(context) {
 
-    if (!this.rendered) {
-      // this.$el.empty().append(this.template());
-      this.rendered = true;
-      this.$lineContainer = this.$('.lines');
-    }
-    this.output = {
-      output: window.OUTPUT.replace(/\n/g, "<br>")
-    };
-    this.$el.empty().append(this.template(this.output))
-  },
+	update_text: function(context) {
+		this.output = {
+			output: window.OUTPUT.replace(/\n/g, "<br>")
+		};
+		this.$el.empty().append(this.template(this.output));
+
+		var $output = this.$('.lines-wrapper');
+		$output.height((($(window).height() - $output.position().top - this.$(
+			'.registers-wrapper').height()) / 3) * .7);
+		this.$('.lines').height('75%');
+		// alert("The shit?");
+	},
+
+	render: function(context) {
+
+		if (!this.rendered) {
+			// this.$el.empty().append(this.template());
+			this.rendered = true;
+			this.$lineContainer = this.$('.lines');
+			this.output = {
+				output: window.OUTPUT.replace(/\n/g, "<br>")
+			};
+			this.$el.empty().append(this.template(this.output))
+		}
+
+		// $('window').trigger('resize');
+	},
 
 
 

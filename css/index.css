@@ -211,7 +211,7 @@ html, body {
 	position: relative;
 	margin: 8px;
 	border: 2px solid #ddd;
-	padding: 4px 0;
+	/*padding: 4px 0;*/
 	-webkit-flex: 1 1;
 	flex: 1 1;
 
@@ -227,8 +227,26 @@ html, body {
 }
 
 .output .line-wrapper{
-	min-height:20%;
-	max-height:20%;
+	/*min-height:20%;*/
+	/*max-height:20%;*/
+	/*height: %;*/
+}
+
+.output .lines{
+	height: 50%;
+	position: relative;
+	margin: 8px;
+	border: 2px solid #ddd;
+	padding: 4px 0;
+	-webkit-flex: 1 1;
+	flex: 1 1;
+
+	background: #f0f0f0;
+
+	overflow-x: scroll;
+	overflow-y: scroll;
+
+	box-shadow: inset 0px 0px 8px rgba(0,0,0,0.02);
 }
 
 .output input[disabled]{

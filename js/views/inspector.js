@@ -23,8 +23,9 @@
  		this.template = _.template($('#tmpl_inspector').html());
  		this.bytes = [];
  		this.objectCode = [];
+ 		this.output = [];
  		this.registers = new RegistersView();
- 		this.output = new OutputView();
+ 		this.$output = new OutputView(this.output);
  		this.$objcode = new ObjectCodeView(this.objectCode);
  		this.listenTo(Backbone.Events, 'app:redraw', this.updateRegisters);
  		$(window).on('resize', this.resizeObjectView.bind(this));
@@ -35,7 +36,7 @@
  		this.$el.empty().html(this.template());
 
  		this.$('.object').append(this.$objcode.$el);
- 		this.$('.output-wrapper').append(this.output.$el);
+ 		this.$('.output-wrapper').append(this.$output.$el);
  		this.$('.registers-wrapper').append(this.registers.$el);
  		window.setTimeout(function() {
  			this.resizeObjectView();
@@ -55,12 +56,16 @@
  	},
 
  	resizeObjectView: function() {
+ 		var $regs = this.$('.registers-wrapper');
+ 		$regs.css('position', 'relative');
+ 		$regs.css('bottom', 0);
+
  		var $lines = this.$objcode.$('.lines-wrapper');
  		$lines.height((($(window).height() - $lines.position().top - this.$(
  			'.registers-wrapper').height()) / 3) * 2);
- 		var $output = this.output.$('.output-wrapper');
- 		$output.height((($(window).height() - $lines.position().top - this.$(
- 			'.registers-wrapper').height()) / 3) * 1);
+ 		var $output = this.$output.$('.lines-wrapper');
+ 		$output.height((($(window).height() - $output.position().top - this.$(
+ 			'.registers-wrapper').height()) / 3) * .7);
  	},
 
  });
