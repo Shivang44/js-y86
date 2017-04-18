@@ -16,7 +16,7 @@ js-y86 is an assembler and simulator written in Javascript. It supports:
 
 js-y86 forks have been spottted at:
 
-* [Ohio State University](http://web.cse.ohio-state.edu/~alzagham/y86-dbg/)
+* [Ohio State University](http://web.cse.ohio-state.edu/~alzaghameem.1/y86-dbg/)
 * [University of Bordeaux](http://dept-info.labri.fr/ENSEIGNEMENT/archi/js-y86/index.html)
 * [University of Maryland](https://jgluck.github.io/js-y86/) ([blog post](http://blog.jonathangluck.com/lets-talk-about-y86/))
 * University of Texas at Austin (this repository)
